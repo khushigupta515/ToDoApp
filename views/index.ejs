@@ -1,28 +1,49 @@
 <html>
     <head>
         <title>To Do app</title>
+        <link rel='stylesheet' href='css/index.css'>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
     <body>
         <div id="heading">TODO App</div>
-        <div>
+        <div id="description">
             <h1>Description</h1>
             <p>What do you need to do?</p>
         </div>
         <div>
             <form>
-                <label>CATEGORY</label>
-                <select placeholder="Choose a category">
-                    <option></option>
-                </select>
-                <label>DUE DATE</label>
-                <input type="date">
-                <a href="">ADD A TASK</a>
-                <a href="">DELETE TASK</a>
-                <input type="checkbox" placeholder="Why not add a task">
-                <input type="checkbox" placeholder="Lets make a TODO App">
-                <a href="">SCHOOL</a>
-                <input type="checkbox" placeholder="Annual report submission deadline">
-                <a href="">WORK</a>
+                <div id="container">
+                    <div id="category">
+                        <label>CATEGORY</label><br>
+                        <select >
+                            <option>Choose a category</option>
+                        </select>
+                    </div>
+                    <div id="duedate"> 
+                        <label>DUE DATE</label><br>
+                        <input type="date"><br>
+                    </div>
+                </div>
+                
+                <div id="button">
+                    <div class="button" id="add"><i class="fa fa-plus"></i><a href="">ADD TASK</a></div>
+                    <div class="button" id="delete"><i class="fa fa-trash"></i><a href="">DELETE TASKS</a></div>
+                </div>
+                <div class="checkbox">
+                    <input type="checkbox" value="Why not add a task">
+                    <label>Why not add a task</label>
+                </div>
+                <div class="checkbox">
+                    <input type="checkbox" value="Lets make a TODO App">
+                    <label>Lets make a TODO App</label>
+                    <a href="" id="school">SCHOOL</a>
+                </div>
+                <div class="checkbox">
+                    <input type="checkbox" value="Annual report submission deadline">
+                    <label>Annual report submission deadline</label>
+                    <a href="" id="work">WORK</a>
+                </div>
+                
             </form>
         </div>
     </body>

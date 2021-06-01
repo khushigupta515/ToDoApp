@@ -1,16 +1,15 @@
 const express = require('express');
 const app= express();
 const PORT = 8000;
-var ejs = require('ejs');
+const ejs = require('ejs');
+const path = require('path');
+const router = require('./routes/index')
 
-app.use(express.static('assets'));
-app.set("view","./views");
+app.use(express.static(path.join(__dirname, 'assests')));
+app.set("views","./views");
 app.set("view engine","ejs");
+app.use('/',router);
 
-app.get('/',function(req,res)
-{
- return res.render('index');
-});
 
 //set up server
 app.listen(PORT,function(err)
