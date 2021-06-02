@@ -1,50 +1,82 @@
 <html>
     <head>
         <title>To Do app</title>
-        <link rel='stylesheet' href='css/index.css'>
+        <link rel="stylesheet" href="css/index.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
     <body>
         <div id="heading">TODO App</div>
-        <div id="description">
-            <h1>Description</h1>
-            <p>What do you need to do?</p>
-        </div>
         <div>
-            <form>
+            <form method ="post" action ="/addingtodatabase" id="form1">
+                <div id="description">
+                    <h1>Description</h1>
+                     <input type="text" placeholder="what do you need to do" name="description" required>
+                 </div>
+        
                 <div id="container">
                     <div id="category">
                         <label>CATEGORY</label><br>
-                        <select >
+                        <select name="category" required>
                             <option>Choose a category</option>
+                            <option>Personal</option>
+                            <option>Work</option>
+                            <option>School</option>
+                            <option>Cleaning</option>
+                            <option>Other</option>
                         </select>
                     </div>
                     <div id="duedate"> 
                         <label>DUE DATE</label><br>
-                        <input type="date"><br>
+                        <input type="date" name="date"><br>
                     </div>
                 </div>
-                
                 <div id="button">
-                    <div class="button" id="add"><i class="fa fa-plus"></i><a href="">ADD TASK</a></div>
-                    <div class="button" id="delete"><i class="fa fa-trash"></i><a href="">DELETE TASKS</a></div>
+                    <button id="add" type="submit"><i class="fa fa-plus"></i>ADD TASK</button >
+                    <button  id="delete" type="button" onclick="submitform2()" ><i class="fa fa-trash"></i>DELETE TASKS</button >
                 </div>
-                <div class="checkbox">
-                    <input type="checkbox" value="Why not add a task">
-                    <label>Why not add a task</label>
+                </form>
+                <form method ="post" action ="/deletingfromdatabase" id="form2">
+                <div class="displaybox">
+                <% documents.forEach(function(doc){ %>
+                        <div class="checkbox">
+                            <input type="checkbox" name="Delete" value="<%= doc._id %>" >
+                            <label><%= doc.description %></label><br>
+                            <div id="leftcheck">
+                            <p><i class="fa fa-calendar" style="color:black"></i><%= doc.date %></p>
+                            </div>
+                            <div id="rightcheck">
+                            <%let color;%>
+                            <% if ( doc.category ==='Personal') { %>
+                                <%color= '#6960EC' %>
+                            <%} %>
+                            <% if ( doc.category ==='Work') { %>
+                                <%color= '#7D1B7E'%>
+                            <%} %>
+                            <% if ( doc.category ==='School') { %>
+                                <%color= '#C48793'%>
+                            <%} %>
+                            <% if ( doc.category ==='Cleaning') { %>
+                                <%color= '#E42217'%>
+                            <%} %>
+                            <% if ( doc.category ==='Other') { %>
+                                <%color= '#A1C935'%>
+                            <%} %>
+                               
+                            
+                            <a href="" id="school" style="background: 
+                            <%= color %> "><%= doc.category %></a>
+                            </div>
+                        </div>
+                <% }) %>        
                 </div>
-                <div class="checkbox">
-                    <input type="checkbox" value="Lets make a TODO App">
-                    <label>Lets make a TODO App</label>
-                    <a href="" id="school">SCHOOL</a>
-                </div>
-                <div class="checkbox">
-                    <input type="checkbox" value="Annual report submission deadline">
-                    <label>Annual report submission deadline</label>
-                    <a href="" id="work">WORK</a>
-                </div>
-                
             </form>
         </div>
     </body>
+    <script>
+        function submitform2()
+        {
+            document.getElementById('form2').submit();
+        } 
+       
+    </script>
 </html>

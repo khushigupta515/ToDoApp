@@ -3,10 +3,10 @@ body{
 }
 div#heading {
     text-align: center;
-    font-weight: 30;
-    font-size: x-large;
+    font-weight: bolder;
     color: #837E7C;
-    font-stretch: extra-expanded;
+    font-size: 40px;
+    
 }
 #description h1,#category label,#duedate label {
     font-size: small;
@@ -25,16 +25,18 @@ div#description,div#container,.button{
     
 }
 
-div#category,div#duedate,.button {
+div#category,div#duedate,.button,#leftcheck,#rightcheck{
     display: inline-block;
     width: 46%;
 }
-.button
-{width:20%;
+#button button
+{width:17%;
 background: yellow;
-padding: 1.5%;}
+padding: 1.5%;
+border:none;
+color:white;}
 
-input[type="date"],select {
+input[type="date"],select,input[type="text"],#displaybox p {
     border: none;
     width: 100%;
     margin: 1%;
@@ -42,7 +44,7 @@ input[type="date"],select {
     color: darkslategrey;
     font-weight: 600;
 }
-.button a,.checkbox a {
+.checkbox a {
     color: white;
     text-decoration: none;
 }
@@ -50,10 +52,10 @@ div#button {
     text-align: center;
     margin-bottom: 5%;
 }
-div#add {
+button#add {
     background: dimgrey;
 }
-div#delete
+button#delete
 {
     background: red;
 }
@@ -84,6 +86,32 @@ i.fa.fa{
 {
     background: #884EA0;
 }
+.displaybox p {
+    font-size: smaller;
+}
+.checkbox
+{
+    border : thin solid grey;
+    
+    width: 80%;
+    margin: auto;
+    margin-bottom: 1.5%;
+    border-radius: 25px;
+    background: #FFE87C;
+    
+}
+body
+{
+    
+    background: #ECE5B6;
+}
+#rightcheck a{
+    padding: 3.5%;
+}
+input[type=checkbox]:checked +label{
+    text-decoration:line-through;
+}
+
 /*div{
     border-bottom : thin solid grey;
 

@@ -3,12 +3,17 @@ const app= express();
 const PORT = 8000;
 const ejs = require('ejs');
 const path = require('path');
-const router = require('./routes/index')
+const router = require('./routes/index');
+const mongoose = require('mongoose');
+const db = require('./config/mongoose');
+const Collection = require('./models/todo');
 
 app.use(express.static(path.join(__dirname, 'assests')));
 app.set("views","./views");
 app.set("view engine","ejs");
+app.use(express.urlencoded({extended:true}));
 app.use('/',router);
+
 
 
 //set up server
