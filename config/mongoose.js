@@ -1,6 +1,6 @@
 //create database
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/todolist',{useNewUrlParser:true,useUnifiedTopology:true});
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/todoapplicationusingmern',{useNewUrlParser:true,useUnifiedTopology:true});
 
 //create connection
 const db = mongoose.connection;
