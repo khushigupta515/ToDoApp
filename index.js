@@ -20,5 +20,5 @@ app.use('/',router);
 app.listen(PORT,function(err)
 {
     if(err){console.log('Error occured in setting up the server',err);return;}
-    console.log('Server up and running on port',PORT);
+    console.log('Server up and running on port',port);
 });
